@@ -1,5 +1,5 @@
-# Hello-OpenCL
-Simple CMake project use OpenCL with C style
+# Image Filter DFT OpenCL
+CMake project use OpenCL with C style
 
 # Dependencies
 Python 3 interpreter
