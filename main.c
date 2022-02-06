@@ -69,7 +69,7 @@ cl_kernel make_kernal_by_name(cl_program program, const char* name) {
 cl_mem make_buffer(size_t size) {
 	cl_uchar fill_value = 0;
 	cl_int ret;
-	cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_WRITE, size, NULL, &ret);
+	cl_mem buffer = clCreateBuffer(context, CL_MEM_READ_WRITE, size	, NULL, &ret);
 	ret = clEnqueueFillBuffer(command_queue, buffer, &fill_value, sizeof(fill_value), 0, size, 0, NULL, NULL);
 	return buffer;
 }
@@ -129,7 +129,7 @@ void OpenCL_release() {
 
 int main() {
 	int componentCount, width, height;
-	unsigned char* image = stbi_load("Zak-van-Biljon-17.jpg", &width, &height, &componentCount, 0);
+	unsigned char* image = stbi_load("../Zak-van-Biljon-17.jpg", &width, &height, &componentCount, 0);
 	size_t image_size = width * height * componentCount;
 	size_t imade_double_size = width * height * sizeof(double);
 	int radius = 20;
@@ -258,7 +258,7 @@ int main() {
 
 	get_buffer_data(image_gpu, image, image_size);
 
-	stbi_write_png("NewImage.bmp", width, height, componentCount, image, 0);
+	stbi_write_png("filtered.bmp", width, height, componentCount, image, 0);
 
 	return 0;
 }
